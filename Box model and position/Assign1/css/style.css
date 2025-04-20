@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+.container {
+    margin: 40px;
+    border: 1px solid lightgrey;
+    width: 700px;
+
+}
+
+.container h1 {
+    padding: 10px;
+}
+
+.container img {
+    width: 600px;
+    height: 400px;
+
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+    padding: 5px;
+
+    margin: 0 auto;
+    /* can giua anh */
+    display: block;
+    /* Chiếm toàn bộ chiều ngang của cha nó (nếu không bị giới hạn chiều rộng)*/
+
+
+}
+
+.container p {
+    padding: 10px 25px;
+}
