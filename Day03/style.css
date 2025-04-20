@@ -1,0 +1,53 @@
+.header {
+    width: 100%;
+    display: flex;
+    background-color: gray;
+
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.header-left {
+    width: 80%;
+    margin-top: 2px;
+
+}
+
+.header-right {
+    width: 20%;
+    margin: 10px;
+
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    /* để hai panel nằm cạnh nhau */
+    margin-top: 10px;
+
+}
+
+.left-panel {
+    width: 40%;
+    background-color: #5e97c2;
+    color: white;
+    padding: 40px;
+    border: 2px solid rgb(232, 220, 144);
+
+
+}
+
+.right-panel {
+    width: 60%;
+    background-color: #9ddbb5;
+    border: 2px solid rgb(232, 220, 144);
+
+}
+
+
+
+@media
