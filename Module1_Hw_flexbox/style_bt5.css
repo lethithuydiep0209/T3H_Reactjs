@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    /* Ngăn kéo thanh ngang nếu có lỗi tràn */
+}
+
+
+
+
+.container {
+    display: flex;
+    text-align: center;
+    margin-top: 50px;
+    /* Chiều cao header */
+    margin-bottom: 50px;
+    /* Chiều cao footer */
+
+
+
+}
+
+.column {
+    flex: 1;
+    margin: 10px 0 10px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin-right: 5px;
+    box-shadow: 2px 2px lightgrey;
+}

@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Giúp chiều rộng và chiều cao không bị tăng lên khi thêm padding và border*/
+
+
+}
+
+.layout #container_layout {
+    display: flex;
+    flex-direction: column;
+    /* height: 100%;
+     */
+    min-height: 100vh;
+    /* Luôn cao tối thiểu bằng chiều cao trình duyệt */
+    background-color: red;
+
+}
+
+.layout #container_layout .container {
+    display: flex;
+    flex: 1;
+    /* Cho phép chiếm không gian còn lại giữa header & footer */
+}
+
+h2 ul li {
+    font-size: 10px;
+}
+
+
+.layout #container_layout .column_right {
+    width: 80%;
+
+    background-color: rgb(196, 205, 210);
+    padding: 20px;
+}
+
+#container_layout .column_left {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 20px;
+
+}
+
+#container_layout header,
+footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* ------------------------------------------------------ */

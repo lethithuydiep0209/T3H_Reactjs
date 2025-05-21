@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!fullName && !birthday && !age && !gender && !phone) {
       alert('Vui lòng nhập ít nhất một thông tin!');
-      // Reset label về mặc định
+      // Reset về mặc định
       document.getElementById('label-fname').textContent = 'Full name:';
       document.getElementById('label-birth').textContent = 'Birthday:';
       document.getElementById('label-age').textContent = 'Age:';
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // Cập nhật label hiển thị giá trị nhập
+    // Cập nhật hiển thị giá trị nhập
     document.getElementById('label-fname').textContent = 'Full name: ' + fullName;
     document.getElementById('label-birth').textContent = 'Birthday: ' + birthday;
     document.getElementById('label-age').textContent = 'Age: ' + age;
