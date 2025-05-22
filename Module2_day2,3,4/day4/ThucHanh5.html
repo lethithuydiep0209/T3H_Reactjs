@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Warehouse Manager</title>
+</head>
+<body>
+<h2>Quản lý kho hàng</h2>
+<button onclick="run()">Bắt đầu chương trình</button>
+
+<script>
+  const storage = {
+    name: 'Fake Storage',
+    address: 'HN',
+    owner: 'Dung Tien',
+    items: [
+      { id: 1, name: 'Product 1', category: 'Furniture', price: 20 },
+      { id: 2, name: 'Product 2', category: 'Device', price: 110 },
+      { id: 3, name: 'Product 3', category: 'Cloth', price: 2 },
+    ]
+  };
+
+  function showStorageInfo() {
+    let info = `Tên kho: ${storage.name}\nĐịa chỉ: ${storage.address}\nNgười sở hữu: ${storage.owner}\n`;
+    info += `\n--- Danh sách mặt hàng ---\n`;
+    if (storage.items.length === 0) {
+      info += "Không có mặt hàng nào trong kho.";
+    } else {
+      storage.items.forEach(item => {
+        info += `ID: ${item.id}, Tên: ${item.name}, Loại: ${item.category}, Giá: ${item.price}\n`;
+      });
+    }
+    alert(info);
+  }
+
+  function updateStorage() {
+    const name = prompt("Nhập tên kho mới:");
+    const address = prompt("Nhập địa chỉ kho mới:");
+    const owner = prompt("Nhập người sở hữu mới:");
+    if (name && address && owner) {
+      storage.name = name;
+      storage.address = address;
+      storage.owner = owner;
+      alert("Cập nhật kho thành công!");
+      showStorageInfo();
+    } else {
+      alert("Dữ liệu không hợp lệ. Đã hủy cập nhật.");
+    }
+  }
+
+  function createItem() {
+    let id = parseInt(prompt("Nhập ID mặt hàng (số nguyên):"));
+    while (storage.items.some(item => item.id === id)) {
+      id = parseInt(prompt("ID đã tồn tại. Vui lòng nhập ID khác:"));
+    }
+
+    const name = prompt("Nhập tên mặt hàng:");
+    const category = prompt("Nhập loại mặt hàng:");
+    const price = parseFloat(prompt("Nhập giá mặt hàng:"));
+
+    if (!isNaN(id) && name && category && !isNaN(price)) {
+      storage.items.push({ id, name, category, price });
+      alert("Thêm mặt hàng thành công!");
+      showStorageInfo();
+    } else {
+      alert("Dữ liệu không hợp lệ. Hủy thao tác.");
+    }
+  }
+
+  function searchItem() {
+    const keyword = prompt("Nhập từ khóa để tìm kiếm mặt hàng (để trống để xem tất cả):");
+    let result;
+    if (keyword) {
+      result = storage.items.filter(item =>
+          item.name.toLowerCase().includes(keyword.toLowerCase())
+      );
+    } else {
+      result = storage.items;
+    }
+
+    if (result.length === 0) {
+      alert("Không tìm thấy mặt hàng nào.");
+    } else {
+      let output = "Kết quả tìm kiếm:\n";
+      result.forEach(item => {
+        output += `ID: ${item.id}, Tên: ${item.name}, Loại: ${item.category}, Giá: ${item.price}\n`;
+      });
+      alert(output);
+    }
+  }
+
+  function deleteItem() {
+    const id = parseInt(prompt("Nhập ID mặt hàng cần xóa:"));
+    const index = storage.items.findIndex(item => item.id === id);
+    if (index !== -1) {
+      storage.items.splice(index, 1);
+      alert("Xóa mặt hàng thành công!");
+      showStorageInfo();
+    } else {
+      alert("Không tìm thấy mặt hàng với mã đã nhập. Kết thúc.");
+    }
+  }
+
+  function run() {
+    let running = true;
+    while (running) {
+      const action = prompt(
+          `Nhập action (1-4):\n1 - Sửa thông tin kho\n2 - Tạo mặt hàng\n3 - Tìm kiếm mặt hàng\n4 - Xóa mặt hàng\nHoặc nhấn Cancel để thoát`
+      );
+      if (action === null) {
+        running = false;
+        alert("Chương trình kết thúc.");
+      } else {
+        switch (action) {
+          case '1': updateStorage(); break;
+          case '2': createItem(); break;
+          case '3': searchItem(); break;
+          case '4': deleteItem(); break;
+          default: alert("Vui lòng nhập action hợp lệ (1-4)");
+        }
+      }
+    }
+  }
+</script>
+</body>
+</html>

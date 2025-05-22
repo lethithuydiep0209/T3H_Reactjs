@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Phân tích hai dãy số</title>
+</head>
+<body>
+<h2>Kết quả hiển thị trong Console (F12 để xem, mục Console)</h2>
+
+<script>
+  // Nhập và xử lý dãy
+  let d1 = prompt("Nhập dãy d1 (cách nhau bởi dấu ,):").split(',').map(Number);
+  let d2 = prompt("Nhập dãy d2 (cách nhau bởi dấu ,):").split(',').map(Number);
+
+  // Kiểm tra dữ liệu hợp lệ
+  if (d1.some(isNaN) || d2.some(isNaN)) {
+    alert("Vui lòng chỉ nhập các số, cách nhau bằng dấu phẩy.");
+  } else {
+    // Sắp xếp 2 dãy để chuẩn bị merge sort
+    d1.sort((a, b) => a - b);
+    d2.sort((a, b) => a - b);
+
+    // 1. Kiểm tra d1 có nằm hoàn toàn trong d2 không
+    let allInD2 = d1.every(num => d2.includes(num));
+
+    // 2. Tổng các phần tử d1
+    let sumD1 = d1.reduce((a, b) => a + b, 0);
+
+    // 3. Có số nào trong d2 chia hết cho tổng d1 không?
+    let divBySumD1 = d2.some(num => num % sumD1 === 0);
+
+    // 4. Các số chẵn trong cả d1 và d2
+    let evenNumbers = [...d1, ...d2].filter(num => num % 2 === 0);
+
+    // 5. Hàm merge hai mảng đã sắp xếp
+    function mergeSorted(a, b) {
+      let res = [], i = 0, j = 0;
+      while (i < a.length && j < b.length) {
+        if (a[i] < b[j]) res.push(a[i++]);
+        else res.push(b[j++]);
+      }
+      return res.concat(a.slice(i)).concat(b.slice(j));
+    }
+
+    let mergedSorted = mergeSorted(d1, d2);
+
+    // Hiển thị kết quả trong console
+    console.log("Dãy d1:", d1);
+    console.log("Dãy d2:", d2);
+    console.log("1. Tất cả phần tử d1 có trong d2:", allInD2);
+    console.log("2. Tổng của d1:", sumD1);
+    console.log("3. Có số nào trong d2 chia hết cho tổng d1:", divBySumD1);
+    console.log("4. Các số chẵn trong cả hai dãy:", evenNumbers);
+    console.log("5. Hai dãy sau khi gộp và sắp xếp (merge):", mergedSorted);
+  }
+</script>
+</body>
+</html>
