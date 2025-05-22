@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+.navbar {
+    background-color: #FF7A00;
+
+    font-size: 20px;
+    padding-right: 5px;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: white !important;
+}
+
+
+
+
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.carousel-caption {
+    z-index: 2;
+}
+
+
+/* Áp dụng hiệu ứng zoom và làm ảnh mờ nhẹ khi hover */
+.signature .row .col-4 img:hover {
+    transform: scale(1.05);
+    /* phóng to nhẹ */
+    opacity: 0.7;
+    /* mờ nhẹ */
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* đổ bóng mềm */
+    transition: all 0.4s ease;
+}
+
+.image-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+}
+
+/* Lớp phủ đen mờ mặc định */
+.image-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+/* Khi hover: lớp phủ biến mất dần */
+.image-box:hover::after {
+    opacity: 0.1;
+}
+
+/* Chữ nằm trên ảnh (và trên lớp phủ) */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+
+
+.booking-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url('img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    gap: 30px;
+    color: white;
+    text-align: center;
+}
+
+.booking-box {
+    flex: 1 1 200px;
+    min-width: 220px;
+    background-color: rgba(106, 97, 97, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.booking-box h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.booking-box label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.date-picker {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    width: 100%;
+}
+
+.counter-ui {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    margin-top: 10px;
+    user-select: none;
+}
+
+.counter-ui .arrow {
+    font-size: 20px;
+    opacity: 0.6;
+}
+
+.counter-ui .number {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-orange {
+    background-color: #d35400;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .booking-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+
+
+.footer_page {
+    position: relative;
+    background-image: url('img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    z-index: 0;
+}
+
+/* Lớp phủ đen mờ */
+.footer_page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* đen mờ 50% */
+    z-index: -1;
+}
